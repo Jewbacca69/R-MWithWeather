@@ -32,7 +32,7 @@ class Weather
 
     public function getDescription(): string
     {
-        return $this->description;
+        return ucfirst($this->description);
     }
 
     public function getTemperature(): int
