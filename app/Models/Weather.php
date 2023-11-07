@@ -42,7 +42,11 @@ class Weather
 
     public function getCurrentTime(): string
     {
-        $carbon = Carbon::now(timezone_name_from_abbr('', $this->timezone, 0));
-        return $carbon->format('H:i');
+        try {
+            $carbon = Carbon::now(timezone_name_from_abbr('', $this->timezone, 0));
+            return $carbon->format('H:i');
+        }catch(\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }
